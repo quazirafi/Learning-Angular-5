@@ -1,0 +1,23 @@
+<div *ngIf="car" style="text-align: center">
+
+  <h1>
+    Details of Car Id: {{car.id}}
+  </h1>
+  <span>Id</span>
+  <div style="margin-bottom: 20px">
+    <input [(ngModel)]="car.id" />
+  </div>
+  <span>Name</span>
+  <div style="margin-bottom: 20px">
+    <input [(ngModel)]="car.name" />
+  </div>
+  <span>Colour</span>
+  <div style="margin-bottom: 20px">
+    <input [(ngModel)]="car.colour" />
+  </div>
+  <span>License Number</span>
+  <div style="margin-bottom: 20px">
+    <input [(ngModel)]="car.licenseNumber" />
+  </div>
+</div>
+

@@ -1,0 +1,37 @@
+<h1>
+  {{title}}
+</h1>
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>License Number</th> 
+    <th>Action</th> 
+  </tr>
+  <tr *ngFor="let car of cars, let i = index" (click)="onSelectCar(car)" >
+    <td>{{car.name}}</td>
+    <td>{{car.licenseNumber}}</td> 
+    <td><input type="button" value="Delete" (click)="delete(i)" ></td>
+  </tr>
+</table>
+<div style="margin-bottom: 20px" *ngIf="createButton">
+    <input type="button" value="Create" (click)="showCreateForm()" >
+</div>
+
+<div *ngIf="!hideForm">
+
+  <h3>Car Create Form</h3>
+  <div style="margin-bottom: 20px">
+      <input [(ngModel)]="createdCar.id" placeholder="id"/>
+  </div>
+  <div style="margin-bottom: 20px">
+      <input [(ngModel)]="createdCar.name" placeholder="name"/>
+  </div>
+  <div style="margin-bottom: 20px"> 
+      <input [(ngModel)]="createdCar.colour" placeholder="colour"/>
+  </div>
+  <div style="margin-bottom: 20px">
+      <input [(ngModel)]="createdCar.licenseNumber" placeholder="license number"/>
+  </div>
+  <input type="button" value="ConfirmCreate" (click)="create()" >
+</div>
+<app-car [car]="selectedCar"></app-car>
