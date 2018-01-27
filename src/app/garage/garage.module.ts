@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GarageComponent } from './garage/garage.component';
-import { CarModule} from '../car/car.module';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule, CarModule, FormsModule
+    CommonModule, FormsModule,
+    RouterModule.forRoot([{
+      path: 'details/:id',
+      loadChildren: '../car/car.module#CarModule' 
+    }])
   ],
   declarations: [GarageComponent],
   exports: [GarageComponent]

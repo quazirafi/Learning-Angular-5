@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Car } from '../car-model/car'
+import { Car } from '../car-model/car';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-car',
@@ -9,11 +11,16 @@ import { Car } from '../car-model/car'
 export class CarComponent implements OnInit {
 
   @Input() car: Car;
-
-  constructor() { }
+  hero$: any;
+ 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
-    
+    this.hero$ = this.route.paramMap;
+    console.log(this.hero$.source.value.id);
   }
 
 }
